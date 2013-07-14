@@ -1,4 +1,4 @@
-walker-game
-===========
+gosu-tutorial
+=============
 
-Walking around game - Ruby - Gosu
+Gosu game tutorial
