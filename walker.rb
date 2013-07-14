@@ -13,14 +13,18 @@ class GameWindow < Gosu::Window
 
   def update
     if button_down? Gosu::KbLeft or button_down? Gosu::GpLeft then
-      @player.turn_left
+      @player.move_left
     end
     if button_down? Gosu::KbRight or button_down? Gosu::GpRight then
-      @player.turn_right
+      @player.move_right
     end
     if button_down? Gosu::KbUp or button_down? Gosu::GpButton0 then
-      @player.accelerate
+      @player.move_up
     end
+    if button_down? Gosu::KbDown or button_down? Gosu::GpButton1 then
+      @player.move_down
+    end
+
     @player.move
   end
 
@@ -47,12 +51,20 @@ class Player
     @x, @y = x, y
   end
 
-  def turn_left
-    @angle -= 4.5
+  def move_left
+    @x -= 4.5
   end
 
-  def turn_right
-    @angle += 4.5
+  def move_right
+    @x += 4.5
+  end
+
+  def move_up
+    @y += 4.5
+  end
+
+  def move_down
+    @y -= 4.5
   end
 
   def accelerate
