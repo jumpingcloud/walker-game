@@ -3,7 +3,7 @@ require 'gosu'
 class GameWindow < Gosu::Window
   def initialize
     super(640, 480, false)
-    self.caption = "Gosu Tutorial Game"
+    self.caption = "Walker Game"
 
     @background_image = Gosu::Image.new(self, "media/Home.png", true)
 
@@ -26,7 +26,7 @@ class GameWindow < Gosu::Window
     end
 
     @player.move
-  end
+ end
 
   def draw
     @player.draw
@@ -52,19 +52,19 @@ class Player
   end
 
   def move_left
-    @x -= 4.5
-  end
+    @x -= 5
+ end
 
   def move_right
-    @x += 4.5
+    @x += 5
   end
 
   def move_up
-    @y += 4.5
+    @y -= 5 unless @y < 10 
   end
 
   def move_down
-    @y -= 4.5
+    @y += 5 unless @y > 400
   end
 
   def accelerate
